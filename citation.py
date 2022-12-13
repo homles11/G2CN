@@ -4,9 +4,9 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 import torch.optim as optim
-from utils import load_citation, sgc_precompute, set_seed, gen_rand_split
+from utils import load_citation, sgc_precompute, set_seed, gen_rand_split, accuracy
 from models import get_model
-from metrics import accuracy
+# from metrics import accuracy
 import pickle as pkl
 from args import get_citation_args
 from time import perf_counter
