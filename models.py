@@ -7,7 +7,6 @@ from utils import dgc_precompute
 from torch_geometric.nn.conv.gcn_conv import gcn_norm
 from torch_geometric.nn import MessagePassing, APPNP
 import numpy as np
-from BernNet import BernNet
 
 class SGC(nn.Module):
     """
@@ -168,13 +167,13 @@ def get_model(model_opt, nfeat, nclass, nhid=0, dropout=0, cuda=True, T=2.0, K=1
                     nclass=nclass,
                     T=T,
                     K=K)
-    elif model_opt == "BernNet":
-        model = BernNet(nfeat=nfeat,
-                        n_hidden=nhid,
-                        nclass=nclass,
-                        dropout=dropout,
-                        dprate=dprate,
-                        K=K)
+#     elif model_opt == "BernNet":
+#         model = BernNet(nfeat=nfeat,
+#                         n_hidden=nhid,
+#                         nclass=nclass,
+#                         dropout=dropout,
+#                         dprate=dprate,
+#                         K=K)
     else:
         raise NotImplementedError('model:{} is not implemented!'.format(model_opt))
 
