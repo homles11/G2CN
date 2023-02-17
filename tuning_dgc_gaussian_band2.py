@@ -145,12 +145,12 @@ def sgc_objective(space,try_time=10, long_epoch=False):
     # print(space, 'accuracy: {:.4f}'.format(acc_val))
     return {'loss': -acc_test, 'std': -res.std(), 'status': STATUS_OK}
 
-# best = fmin(sgc_objective, space=space, algo=tpe.suggest, max_evals=args.max_evals)
+best = fmin(sgc_objective, space=space, algo=tpe.suggest, max_evals=args.max_evals)
 print("Best config", best)
 
 acc_val = sgc_objective(best,try_time=10,long_epoch=True)
-# acc_val.append(['loss'].item())
-# acc_val = np.array(acc_val)
+acc_val.append(['loss'].item())
+acc_val = np.array(acc_val)
 
 print('10 runs of best policy:', -acc_val['loss'].item(), acc_val['std'].item())
 
